@@ -586,7 +586,7 @@ MAKEFLAGS=
 
 # Identity of this package.
 PACKAGE_NAME='libedit'
-PACKAGE_TARNAME='libedit-20130601'
+PACKAGE_TARNAME='libedit-20130608'
 PACKAGE_VERSION='3.1'
 PACKAGE_STRING='libedit 3.1'
 PACKAGE_BUGREPORT=''
@@ -632,6 +632,14 @@ ac_includes_default="\
 ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
+HAVE_UNVIS_FALSE
+HAVE_UNVIS_TRUE
+HAVE_VIS_FALSE
+HAVE_VIS_TRUE
+HAVE_STRLCAT_FALSE
+HAVE_STRLCAT_TRUE
+HAVE_STRLCPY_FALSE
+HAVE_STRLCPY_TRUE
 LIBOBJS
 WIDECHAR_FALSE
 WIDECHAR_TRUE
@@ -1362,7 +1370,7 @@ Fine tuning of the installation directories:
   --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
   --mandir=DIR            man documentation [DATAROOTDIR/man]
   --docdir=DIR            documentation root
-                          [DATAROOTDIR/doc/libedit-20130601]
+                          [DATAROOTDIR/doc/libedit-20130608]
   --htmldir=DIR           html documentation [DOCDIR]
   --dvidir=DIR            dvi documentation [DOCDIR]
   --pdfdir=DIR            pdf documentation [DOCDIR]
@@ -4146,7 +4154,7 @@ fi
 
 
 # Define the identity of the package.
- PACKAGE='libedit-20130601'
+ PACKAGE='libedit-20130608'
  VERSION='3.1'
 
 
@@ -11512,7 +11520,7 @@ CC="$lt_save_CC"
 
 
 # libtool -version-info
-LT_VERSION=0:43:0
+LT_VERSION=0:44:0
 
 
 # Check whether --enable-silent-rules was given.
@@ -13096,6 +13104,85 @@ fi
 done
 
 
+# strlcpy
+ac_fn_c_check_func "$LINENO" "strlcpy" "ac_cv_func_strlcpy"
+if test "x$ac_cv_func_strlcpy" = xyes; then :
+  found_strlcpy=yes
+else
+  found_strlcpy=no
+fi
+
+if test "x$found_strlcpy" = xyes; then
+    if test "x$found_strlcpy" = xyes; then
+  HAVE_STRLCPY_TRUE=
+  HAVE_STRLCPY_FALSE='#'
+else
+  HAVE_STRLCPY_TRUE='#'
+  HAVE_STRLCPY_FALSE=
+fi
+
+fi
+
+# strlcat
+ac_fn_c_check_func "$LINENO" "strlcat" "ac_cv_func_strlcat"
+if test "x$ac_cv_func_strlcat" = xyes; then :
+  found_strlcat=yes
+else
+  found_strlcat=no
+fi
+
+if test "x$found_strlcat" = xyes; then
+    if test "x$found_strlcat" = xyes; then
+  HAVE_STRLCAT_TRUE=
+  HAVE_STRLCAT_FALSE='#'
+else
+  HAVE_STRLCAT_TRUE='#'
+  HAVE_STRLCAT_FALSE=
+fi
+
+fi
+
+# vis
+ac_fn_c_check_func "$LINENO" "vis" "ac_cv_func_vis"
+if test "x$ac_cv_func_vis" = xyes; then :
+  found_vis=yes
+else
+  found_vis=no
+fi
+
+if test "x$found_vis" = xyes; then
+    if test "x$found_vis" = xyes; then
+  HAVE_VIS_TRUE=
+  HAVE_VIS_FALSE='#'
+else
+  HAVE_VIS_TRUE='#'
+  HAVE_VIS_FALSE=
+fi
+
+fi
+
+# unvis
+ac_fn_c_check_func "$LINENO" "unvis" "ac_cv_func_unvis"
+if test "x$ac_cv_func_unvis" = xyes; then :
+  found_unvis=yes
+else
+  found_unvis=no
+fi
+
+if test "x$found_unvis" = xyes; then
+    if test "x$found_unvis" = xyes; then
+  HAVE_UNVIS_TRUE=
+  HAVE_UNVIS_FALSE='#'
+else
+  HAVE_UNVIS_TRUE='#'
+  HAVE_UNVIS_FALSE=
+fi
+
+fi
+
+
+
+
    { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether getpwnam_r and getpwuid_r are posix like" >&5
 $as_echo_n "checking whether getpwnam_r and getpwuid_r are posix like... " >&6; }
       # The prototype for the POSIX version is:
@@ -13302,6 +13389,22 @@ fi
 
 if test -z "${WIDECHAR_TRUE}" && test -z "${WIDECHAR_FALSE}"; then
   as_fn_error $? "conditional \"WIDECHAR\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${HAVE_STRLCPY_TRUE}" && test -z "${HAVE_STRLCPY_FALSE}"; then
+  as_fn_error $? "conditional \"HAVE_STRLCPY\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${HAVE_STRLCAT_TRUE}" && test -z "${HAVE_STRLCAT_FALSE}"; then
+  as_fn_error $? "conditional \"HAVE_STRLCAT\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${HAVE_VIS_TRUE}" && test -z "${HAVE_VIS_FALSE}"; then
+  as_fn_error $? "conditional \"HAVE_VIS\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${HAVE_UNVIS_TRUE}" && test -z "${HAVE_UNVIS_FALSE}"; then
+  as_fn_error $? "conditional \"HAVE_UNVIS\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 

@@ -1,7 +1,13 @@
    * See also NetBSD changelog:
 	http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libedit
 
-2012-06-01 Jess Thrysoee
+2013-06-08 Jess Thrysoee
+
+   * version-info: 0:44:0
+
+   * configure.ac, src/Makefile.am: Prevent 'ranlib: has no symbols' build warnings for systems that has strlcpy, strlcat, vis, unvis.
+
+2013-06-01 Jess Thrysoee
 
    * version-info: 0:43:0
 

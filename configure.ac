@@ -31,7 +31,7 @@ AM_INIT_AUTOMAKE
 AC_PROG_LIBTOOL
 
 # libtool -version-info
-AC_SUBST(LT_VERSION, [0:44:0])
+AC_SUBST(LT_VERSION, [0:45:0])
 
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
@@ -108,28 +108,19 @@ AC_CHECK_FUNCS([endpwent isascii memchr memset re_comp regcomp strcasecmp strchr
 
 # strlcpy
 AC_CHECK_FUNC(strlcpy, found_strlcpy=yes, found_strlcpy=no)
-if test "x$found_strlcpy" = xyes; then
-   AM_CONDITIONAL(HAVE_STRLCPY, [test "x$found_strlcpy" = xyes])
-fi
+AM_CONDITIONAL(HAVE_STRLCPY, [test "x$found_strlcpy" = xyes])
 
 # strlcat
 AC_CHECK_FUNC(strlcat, found_strlcat=yes, found_strlcat=no)
-if test "x$found_strlcat" = xyes; then
-   AM_CONDITIONAL(HAVE_STRLCAT, [test "x$found_strlcat" = xyes])
-fi
+AM_CONDITIONAL(HAVE_STRLCAT, [test "x$found_strlcat" = xyes])
 
 # vis
 AC_CHECK_FUNC(vis, found_vis=yes, found_vis=no)
-if test "x$found_vis" = xyes; then
-   AM_CONDITIONAL(HAVE_VIS, [test "x$found_vis" = xyes])
-fi
+AM_CONDITIONAL(HAVE_VIS, [test "x$found_vis" = xyes])
 
 # unvis
 AC_CHECK_FUNC(unvis, found_unvis=yes, found_unvis=no)
-if test "x$found_unvis" = xyes; then
-   AM_CONDITIONAL(HAVE_UNVIS, [test "x$found_unvis" = xyes])
-fi
-
+AM_CONDITIONAL(HAVE_UNVIS, [test "x$found_unvis" = xyes])
 
 
 EL_GETPW_R_POSIX

@@ -1,7 +1,18 @@
    * See also NetBSD changelog:
 	http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libedit
 
-2013-06-10 Jess Thrysoee
+2013-07-10 Jess Thrysoee
+
+   * version-info: 0:46:0
+
+   * configure.ac, src/el.c: ~/.editrc was never sourced on Linux.
+	On Linux issetugid is not available. When unable to determine if
+	the current process is tainted, we did not trust the HOME environment
+	variable and therefore could not load ~/.editrc.
+	Now instead use secure_getenv or a issetugid based implementation of secure_getenv.
+	Patch by Paolo Tosco.
+
+2013-06-11 Jess Thrysoee
 
    * version-info: 0:45:0
 

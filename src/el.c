@@ -58,6 +58,29 @@ __RCSID("$NetBSD: el.c,v 1.72 2013/01/22 20:23:21 christos Exp $");
 #include <langinfo.h>
 #include "el.h"
 
+#ifndef HAVE_SECURE_GETENV
+#	ifdef HAVE___SECURE_GETENV
+#		define secure_getenv __secure_getenv
+#		define HAVE_SECURE_GETENV 1
+#	else
+#		ifdef HAVE_ISSETUGID
+#			include <unistd.h>
+#		else
+#			undef issetugid
+#			define issetugid() 1
+#		endif
+#	endif
+#endif
+
+#ifndef HAVE_SECURE_GETENV
+char *secure_getenv(char const *name)
+{
+	if (issetugid())
+		return 0;
+	return getenv(name);
+}
+#endif
+
 /* el_init():
  *	Initialize editline and set default parameters.
  */
@@ -518,24 +541,13 @@ el_source(EditLine *el, const char *fname)
 		static const char elpath[] = "/.editrc";
 		size_t plen = sizeof(elpath);
 
-#ifdef HAVE_ISSETUGID
-		if (issetugid())
-			return -1;
-		if ((ptr = getenv("HOME")) == NULL)
+		if ((ptr = secure_getenv("HOME")) == NULL)
 			return -1;
 		plen += strlen(ptr);
 		if ((path = el_malloc(plen * sizeof(*path))) == NULL)
 			return -1;
 		(void)snprintf(path, plen, "%s%s", ptr, elpath);
 		fname = path;
-#else
-		/*
-		 * If issetugid() is missing, always return an error, in order
-		 * to keep from inadvertently opening up the user to a security
-		 * hole.
-		 */
-		return -1;
-#endif
 	}
 	if (fp == NULL)
 		fp = fopen(fname, "r");

@@ -4,16 +4,20 @@
 # Compile with debug symbols:
 #    CFLAGS="-ggdb -pedandic -O0" ./configure
 #    CFLAGS="-ggdb -Wall -Wextra -pedantic -O0" ./configure
+#
+# Use libtool (glibtool on OSX) to debug:
+#
+#    libtool --mode=execute gdb examples/tc1 
 # 
-# Run valgrind like this (libtool is called glibtool on OSX), but note
+# Run valgrind like this, but note
 # http://invisible-island.net/ncurses/ncurses.faq.html#config_leaks.
 #
-#    glibtool --mode=execute valgrind --leak-check=full ./tc1
+#    libtool --mode=execute valgrind --leak-check=full examples/tc1
 #
 # A valgrind suppressions file for ncurses is available at 
 # http://www.opensource.apple.com/source/ncurses/ncurses-27/ncurses/misc/ncurses.supp
 #
-#    glibtool --mode=execute valgrind --suppressions=ncurses.supp.txt --leak-check=full ./tc1
+#    libtool --mode=execute valgrind --suppressions=ncurses.supp.txt --leak-check=full examples/tc1
 #
 # Verbose output can be enabled with
 #    "./configure --disable-silent-rules" or "make V=1"
@@ -31,7 +35,7 @@ AM_INIT_AUTOMAKE
 AC_PROG_LIBTOOL
 
 # libtool -version-info
-AC_SUBST(LT_VERSION, [0:45:0])
+AC_SUBST(LT_VERSION, [0:46:0])
 
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
@@ -104,7 +108,7 @@ AC_PROG_GCC_TRADITIONAL
 #AC_FUNC_REALLOC
 AC_TYPE_SIGNAL
 AC_FUNC_STAT
-AC_CHECK_FUNCS([endpwent isascii memchr memset re_comp regcomp strcasecmp strchr strcspn strdup strerror strrchr strstr strtol issetugid wcsdup strlcpy strlcat fgetln vis strvis strunvis])
+AC_CHECK_FUNCS([endpwent isascii memchr memset re_comp regcomp strcasecmp strchr strcspn strdup strerror strrchr strstr strtol issetugid wcsdup strlcpy strlcat fgetln vis strvis strunvis __secure_getenv secure_getenv])
 
 # strlcpy
 AC_CHECK_FUNC(strlcpy, found_strlcpy=yes, found_strlcpy=no)

@@ -926,6 +926,7 @@ protected el_action_t
 /*ARGSUSED*/
 vi_alias(EditLine *el, Int c __attribute__((__unused__)))
 {
+   (void)el;
 #ifdef __weak_reference
 	char alias_name[3];
 	char *alias_text;

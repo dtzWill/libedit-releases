@@ -75,7 +75,7 @@ static	char   *prompt(EditLine *);
 static	void	sig(int);
 
 static char *
-prompt(EditLine *el)
+prompt(EditLine *el __attribute__((__unused__)))
 {
 	static char a[] = "\1\033[7m\1Edit$\1\033[0m\1 ";
 	static char b[] = "Edit> ";
@@ -90,13 +90,13 @@ sig(int i)
 }
 
 static unsigned char
-complete(EditLine *el, int ch)
+complete(EditLine *el, int ch __attribute__((__unused__)))
 {
 	DIR *dd = opendir(".");
 	struct dirent *dp;
 	const char* ptr;
 	const LineInfo *lf = el_line(el);
-	int len;
+	size_t len;
 	int res = CC_ERROR;
 
 	/*
@@ -124,7 +124,7 @@ complete(EditLine *el, int ch)
 }
 
 int
-main(int argc, char *argv[])
+main(int argc __attribute__((__unused__)), char *argv[])
 {
 	EditLine *el = NULL;
 	int num;

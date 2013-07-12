@@ -7,7 +7,7 @@
 #
 # Use libtool (glibtool on OSX) to debug:
 #
-#    libtool --mode=execute gdb examples/tc1 
+#    libtool --mode=execute gdb examples/tc1
 # 
 # Run valgrind like this, but note
 # http://invisible-island.net/ncurses/ncurses.faq.html#config_leaks.
@@ -35,7 +35,7 @@ AM_INIT_AUTOMAKE
 AC_PROG_LIBTOOL
 
 # libtool -version-info
-AC_SUBST(LT_VERSION, [0:46:0])
+AC_SUBST(LT_VERSION, [0:47:0])
 
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 

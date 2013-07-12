@@ -1,6 +1,14 @@
    * See also NetBSD changelog:
 	http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libedit
 
+2013-07-12 Jess Thrysoee
+
+   * version-info: 0:47:0
+
+   * all: sync with upstream source.
+
+   * examples/fileman.c, examples/tc1.c: fix pedantic compiler warnings
+
 2013-07-10 Jess Thrysoee
 
    * version-info: 0:46:0

@@ -91,7 +91,7 @@ dupstr (char* s)
 }
 
 int
-main (int argc, char **argv)
+main (int argc __attribute__((__unused__)), char **argv)
 {
    char *line, *s;
 
@@ -240,7 +240,7 @@ initialize_readline ()
    contents of rl_line_buffer in case we want to do some simple
    parsing.  Returnthe array of matches, or NULL if there aren't any. */
 char **
-fileman_completion (const char* text, int start, int end)
+fileman_completion (const char* text, int start, int end __attribute__((__unused__)))
 {
    char **matches;
 
@@ -279,7 +279,7 @@ command_generator (text, state)
 
    /* Return the next name which partially matches from the
       command list. */
-   while (name = commands[list_index].name)
+   while ((name = commands[list_index].name))
    {
       list_index++;
 
@@ -323,7 +323,7 @@ com_view (char *arg)
 }
 
 int
-com_history(char* arg)
+com_history(char* arg __attribute__((__unused__)))
 {
    HIST_ENTRY *he;
 
@@ -340,7 +340,7 @@ com_history(char* arg)
 }
 
 int
-com_rename (char *arg)
+com_rename (char *arg __attribute__((__unused__)))
 {
    too_dangerous ("rename");
    return (1);
@@ -374,7 +374,7 @@ com_stat (char *arg)
 }
 
 int
-com_delete (char *arg)
+com_delete (char *arg __attribute__((__unused__)))
 {
    too_dangerous ("delete");
    return (1);
@@ -436,7 +436,7 @@ com_cd (char *arg)
 
 /* Print out the current working directory. */
 int
-com_pwd (char* ignore)
+com_pwd (char* ignore __attribute__((__unused__)))
 {
    char dir[1024], *s;
 
@@ -454,7 +454,7 @@ com_pwd (char* ignore)
 /* The user wishes to quit using this program.  Just set DONE
    non-zero. */
 int 
-com_quit (char *arg)
+com_quit (char *arg __attribute__((__unused__)))
 {
    done = 1;
    return (0);

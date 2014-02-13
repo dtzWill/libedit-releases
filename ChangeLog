@@ -1,6 +1,18 @@
    * See also NetBSD changelog:
 	http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libedit
 
+2014-02-13 Jess Thrysoee
+
+   * version-info: 0:48:0
+
+   * all: sync with upstream source.
+
+   * examples/fileman.c: Fix typo. Patch by Kamil Dudka.
+
+   * Makefile.am, configure.ac: Add --enable-examples configure parameter.
+	Make it possible to enable/disable building of the examples programs.
+	Patch by James Le Cuirot.
+
 2013-07-12 Jess Thrysoee
 
    * version-info: 0:47:0

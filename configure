@@ -586,7 +586,7 @@ MAKEFLAGS=
 
 # Identity of this package.
 PACKAGE_NAME='libedit'
-PACKAGE_TARNAME='libedit-20130712'
+PACKAGE_TARNAME='libedit-20140213'
 PACKAGE_VERSION='3.1'
 PACKAGE_STRING='libedit 3.1'
 PACKAGE_BUGREPORT=''
@@ -641,6 +641,8 @@ HAVE_STRLCAT_TRUE
 HAVE_STRLCPY_FALSE
 HAVE_STRLCPY_TRUE
 LIBOBJS
+ENABLE_EXAMPLES_FALSE
+ENABLE_EXAMPLES_TRUE
 WIDECHAR_FALSE
 WIDECHAR_TRUE
 MANTYPE
@@ -771,6 +773,7 @@ with_gnu_ld
 with_sysroot
 enable_libtool_lock
 enable_widec
+enable_examples
 '
       ac_precious_vars='build_alias
 host_alias
@@ -1370,7 +1373,7 @@ Fine tuning of the installation directories:
   --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
   --mandir=DIR            man documentation [DATAROOTDIR/man]
   --docdir=DIR            documentation root
-                          [DATAROOTDIR/doc/libedit-20130712]
+                          [DATAROOTDIR/doc/libedit-20140213]
   --htmldir=DIR           html documentation [DOCDIR]
   --dvidir=DIR            dvi documentation [DOCDIR]
   --pdfdir=DIR            pdf documentation [DOCDIR]
@@ -1412,6 +1415,7 @@ Optional Features:
                           optimize for fast installation [default=yes]
   --disable-libtool-lock  avoid locking (might break parallel builds)
   --enable-widec          compile with wide-char/UTF-8 code
+  --enable-examples       build the example programs [default=yes]
 
 Optional Packages:
   --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
@@ -4213,7 +4217,7 @@ fi
 
 
 # Define the identity of the package.
- PACKAGE='libedit-20130712'
+ PACKAGE='libedit-20140213'
  VERSION='3.1'
 
 
@@ -11620,7 +11624,7 @@ CC="$lt_save_CC"
 
 
 # libtool -version-info
-LT_VERSION=0:47:0
+LT_VERSION=0:48:0
 
 
 # Check whether --enable-silent-rules was given.
@@ -12262,6 +12266,24 @@ else
   WIDECHAR_FALSE=
 fi
 
+
+
+# Check whether --enable-examples was given.
+if test "${enable_examples+set}" = set; then :
+  enableval=$enable_examples; enable_examples="$enableval"
+else
+  enable_examples="yes"
+
+fi
+
+
+ if test "$enable_examples" == "yes"; then
+  ENABLE_EXAMPLES_TRUE=
+  ENABLE_EXAMPLES_FALSE='#'
+else
+  ENABLE_EXAMPLES_TRUE='#'
+  ENABLE_EXAMPLES_FALSE=
+fi
 
 
 # Checks for header files.
@@ -13480,6 +13502,10 @@ fi
 
 if test -z "${WIDECHAR_TRUE}" && test -z "${WIDECHAR_FALSE}"; then
   as_fn_error $? "conditional \"WIDECHAR\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${ENABLE_EXAMPLES_TRUE}" && test -z "${ENABLE_EXAMPLES_FALSE}"; then
+  as_fn_error $? "conditional \"ENABLE_EXAMPLES\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${HAVE_STRLCPY_TRUE}" && test -z "${HAVE_STRLCPY_FALSE}"; then

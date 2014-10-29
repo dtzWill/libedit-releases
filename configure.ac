@@ -35,7 +35,7 @@ AM_INIT_AUTOMAKE
 AC_PROG_LIBTOOL
 
 # libtool -version-info
-AC_SUBST(LT_VERSION, [0:51:0])
+AC_SUBST(LT_VERSION, [0:52:0])
 
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
@@ -72,7 +72,7 @@ AC_ARG_ENABLE(
   [enable_examples="yes"]
 )
 
-AM_CONDITIONAL(ENABLE_EXAMPLES, [test "$enable_examples" == "yes"])
+AM_CONDITIONAL(ENABLE_EXAMPLES, [test "$enable_examples" = "yes"])
 
 # Checks for header files.
 AC_HEADER_DIRENT

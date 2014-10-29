@@ -586,7 +586,7 @@ MAKEFLAGS=
 
 # Identity of this package.
 PACKAGE_NAME='libedit'
-PACKAGE_TARNAME='libedit-20140620'
+PACKAGE_TARNAME='libedit-20141029'
 PACKAGE_VERSION='3.1'
 PACKAGE_STRING='libedit 3.1'
 PACKAGE_BUGREPORT=''
@@ -1373,7 +1373,7 @@ Fine tuning of the installation directories:
   --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
   --mandir=DIR            man documentation [DATAROOTDIR/man]
   --docdir=DIR            documentation root
-                          [DATAROOTDIR/doc/libedit-20140620]
+                          [DATAROOTDIR/doc/libedit-20141029]
   --htmldir=DIR           html documentation [DOCDIR]
   --dvidir=DIR            dvi documentation [DOCDIR]
   --pdfdir=DIR            pdf documentation [DOCDIR]
@@ -4217,7 +4217,7 @@ fi
 
 
 # Define the identity of the package.
- PACKAGE='libedit-20140620'
+ PACKAGE='libedit-20141029'
  VERSION='3.1'
 
 
@@ -11624,7 +11624,7 @@ CC="$lt_save_CC"
 
 
 # libtool -version-info
-LT_VERSION=0:51:0
+LT_VERSION=0:52:0
 
 
 # Check whether --enable-silent-rules was given.
@@ -12277,7 +12277,7 @@ else
 fi
 
 
- if test "$enable_examples" == "yes"; then
+ if test "$enable_examples" = "yes"; then
   ENABLE_EXAMPLES_TRUE=
   ENABLE_EXAMPLES_FALSE='#'
 else

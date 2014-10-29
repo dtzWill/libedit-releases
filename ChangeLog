@@ -1,6 +1,14 @@
    * See also NetBSD changelog:
 	http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libedit
 
+2014-10-30 Jess Thrysoee
+
+   * version-info: 0:52:0
+
+   * all: sync with upstream source
+
+   * configura.ac: Fix posix shell portability issue. Patch by Ryo Onodera.
+
 2014-06-20 Jess Thrysoee
 
    * version-info: 0:51:0

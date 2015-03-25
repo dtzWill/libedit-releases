@@ -1,6 +1,12 @@
    * See also NetBSD changelog:
 	http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libedit
 
+2015-03-25 Jess Thrysoee
+
+   * version-info: 0:53:0
+
+   * all: sync with upstream source
+
 2014-10-30 Jess Thrysoee
 
    * version-info: 0:52:0

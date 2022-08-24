@@ -3,7 +3,7 @@
 set -euo pipefail
 
 VERSIONS=( $( \
-  curl http://thrysoee.dk/editline/ \
+  curl -L https://thrysoee.dk/editline/ \
   | grep -Eo '^[0-9]{4}-[0-9]{2}-[0-9]{2}' \
   | tr -d '-' ) )
 

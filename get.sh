@@ -5,7 +5,8 @@ set -euo pipefail
 VERSIONS=( $( \
   curl -L https://thrysoee.dk/editline/ \
   | grep -Eo '^[0-9]{4}-[0-9]{2}-[0-9]{2}' \
-  | tr -d '-' ) )
+  | tr -d '-' \
+  | sort ) )
 
 IMPORT_TARS="$(nix-build --no-out-link '<nixpkgs>' -A git)/share/git/contrib/fast-import/import-tars.perl"
 
